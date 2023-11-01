@@ -28,9 +28,9 @@ podman machine os apply localhost/create_px4_drv
   "-device",
   "usb-host,vendorid=0x0511,productid=0x083f"
 ```
-kernel version 6.4.0 あたりで、class_create() の引数が変更になった、らしい。
-ここの Containerfile では、kernel version 6.4.x 以降で動作するように、記載している。
-そのため、6.4.0 より前の kernel の場合は、下記をコメントアウト または 削除する必要がある。
+kernel version 6.4.0 あたりで、class_create() の引数が変更になった、らしい。  
+ここの Containerfile では、kernel version 6.4.x 以降で動作するように、記載している。  
+そのため、6.4.0 より前の kernel の場合は、下記をコメントアウト または 削除する必要がある。  
 https://github.com/sakuei-ld/px4_drv_oci/blob/7a5a1696efe8b32b45ea9726d03a49d1972cc593/Containerfile#L30
 
 ## その他
