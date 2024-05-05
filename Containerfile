@@ -1,7 +1,7 @@
 # Mac podman で使われる ホスト が testing のため (ベースの kernel バージョンを合わせるため)
 FROM quay.io/fedora/fedora-coreos:testing
 
-RUN rpm-ostree install --apply-live --allow-inactive unzip wget git koji
+RUN rpm-ostree install --apply-live --allow-inactive unzip git koji
 
 # work directory
 RUN mkdir /var/temp
@@ -19,7 +19,7 @@ RUN git clone https://github.com/nns779/px4_drv
 # extract firmware
 WORKDIR /var/temp/px4_drv/fwtool
 RUN make
-RUN wget http://plex-net.co.jp/plex/pxw3u4/pxw3u4_BDA_ver1x64.zip -O pxw3u4_BDA_ver1x64.zip
+RUN curl http://plex-net.co.jp/plex/pxw3u4/pxw3u4_BDA_ver1x64.zip > pxw3u4_BDA_ver1x64.zip
 RUN unzip -oj pxw3u4_BDA_ver1x64.zip pxw3u4_BDA_ver1x64/PXW3U4.sys
 RUN ./fwtool PXW3U4.sys it930x-firmware.bin
 RUN mkdir -p /lib/firmware
