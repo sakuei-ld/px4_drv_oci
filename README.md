@@ -14,6 +14,7 @@ podman machine os apply localhost/create_px4_drv
 とやれば導入できる。  
   
 ## 注意点  
+- podman 5.x には未対応 (applehv が USB passthrough に未対応のため)  
 - podman machine に割り当てるメモリ量は 4GB 以上必要なこと (podman machine os apply で失敗する)  
 - podman machine start の前に、/Users/[username]/.config/containers/podman/machine/qemu/podman-machine-default.json にある QEMU実行時コマンドに USBデバイスの追記がいること  
 - 実際にコンテナで px4_drv を使うには、podman machine ssh で、sudo setsebool -P container_use_devices=true を実行すること
